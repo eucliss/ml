@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import os
 import sklearn
 
-
 def plot_history(history):
     accuracy = history['accuracy']
     loss = history['loss']
