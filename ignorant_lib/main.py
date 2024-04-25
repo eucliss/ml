@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import sklearn
+import re
 
 def plot_history(history):
     accuracy = history['accuracy']
@@ -28,11 +29,40 @@ def plot_history(history):
 def sentiment(value):
     return "Positive" if value == 1 else "Negative"
 
+def saveTrainingData(data, file_path='../artificial_ignorance/data/dota_matches.npy'):
+    with open(file_path, 'wb') as f:
+        np.save(f, data, allow_pickle=True)
+    return
+
+def loadTrainingData(file_path='../artificial_ignorance/data/dota_matches.npy'):
+    with open(file_path, 'rb') as f:
+        return np.load(f, allow_pickle=False)
+
 def vectorize(data, dimensions):
     multihot = np.zeros((len(data), dimensions))
     for row, col in enumerate(data):
         multihot[row, col] = 1
     return multihot
+
+def single_plot_numpy_array(data, col_index, title="Single-plot"):
+    plt.scatter(range(len(data)), data[:, col_index])
+    plt.title(title)
+    plt.show()
+
+def multi_plot_numpy_array(data, columns, title="Multi-plot"):
+    (fig, axes) = plt.subplots(len(columns), 1)
+    plots = axes.flatten()
+    plot_index = 0
+    fig.suptitle(title)
+    for index, name in enumerate(columns):
+        try:
+            plots[plot_index].scatter(range(len(data)), data[:, index])
+            plots[plot_index].set_title(name)
+            plot_index += 1
+        except:
+            print("Error plotting: ", name)
+    plt.show()
+
 
 def scatter3d(data, labels):
     clusters = len(np.unique(labels))
@@ -83,7 +113,7 @@ def untokenize_email(indices, reverse_word_index):
     # reverse_word_index = {k:v for v,k in word_index.items()}
     return [reverse_word_index[i] for i in indices]
 
-def vectorize_sequence(word_index_array, dimension=WordsToWorkWith):
+def vectorize_sequence(word_index_array, dimension=2):
     results = np.zeros((len(word_index_array), dimension))
     for i, word in enumerate(word_index_array):
         results[i, word] = 1.0
