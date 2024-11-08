@@ -1,0 +1,194 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "amber_hand": {
+            "type": "object",
+            "properties": {
+                "players": {
+                    "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "steam_name": {
+                                    "type": "string"
+                                },
+                                "steam_id": {
+                                    "type": "integer"
+                                },
+                                "hero": {
+                                    "type": "string"
+                                },
+                                "total_souls": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 1000000
+                                },
+                                "souls_per_minute": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 3000
+                                },
+                                "kills": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "deaths": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "assists": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "player_dmg": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 300000
+                                },
+                                "object_dmg": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 300000
+                                },
+                                "healing": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 300000
+                                }
+                            },
+                            "required": [
+                                "steam_name",
+                                "steam_id",
+                                "hero",
+                                "total_souls",
+                                "souls_per_minute",
+                                "kills",
+                                "deaths",
+                                "assists",
+                                "player_dmg",
+                                "object_dmg",
+                                "healing"
+                            ]
+                        }
+                    },
+                    "team_souls": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1000000
+                    }
+            },
+            "required": [
+                "players",
+                "team_souls"
+            ]
+        },
+        "saphire_flame": {
+            "type": "object",
+            "properties": {
+                    "players": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "steam_name": {
+                                    "type": "string"
+                                },
+                                "steam_id": {
+                                    "type": "integer"
+                                },
+                                "hero": {
+                                    "type": "string"
+                                },
+                                "total_souls": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 1000000
+                                },
+                                "souls_per_minute": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 3000
+                                },
+                                "kills": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "deaths": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "assists": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "player_dmg": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 300000
+                                },
+                                "object_dmg": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 300000
+                                },
+                                "healing": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 300000
+                                }
+                            },
+                            "required": [
+                                "steam_name",
+                                "steam_id",
+                                "hero",
+                                "total_souls",
+                                "souls_per_minute",
+                                "kills",
+                                "deaths",
+                                "assists",
+                                "player_dmg",
+                                "object_dmg",
+                                "healing"
+                            ]
+                        }
+                    },
+                    "team_souls": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1000000
+                    }
+            },
+            "required": [
+                "players",
+                "team_souls"
+            ]
+        },  
+        "match_id": {
+            "type": "integer"
+        },
+        "winner": {
+            "type": "string"
+        },
+        "duration": {
+            "type": "integer"
+        },
+        "rage_status": {
+            "type": "boolean"
+        }
+    },
+    "required": [
+        "match_id",
+        "amber_hand",
+        "saphire_flame",
+        "winner",
+        "duration",
+        "rage_status"
+    ]
+}

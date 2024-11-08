@@ -1,0 +1,1 @@
+print("not intelligent, but artificial.")

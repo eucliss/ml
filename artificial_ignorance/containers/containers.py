@@ -127,8 +127,6 @@ class Ship:
             result['port_starboard_balance'] = "Starboard"
         return result
 
-
-
     def port_starboard_balance(self):
         total = 0
         port = 0
